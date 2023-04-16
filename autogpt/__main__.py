@@ -384,6 +384,7 @@ def main():
     # this is particularly important for indexing and referencing pinecone memory
     memory = get_memory(cfg, init=True)
     print(f"Using memory of type: {memory.__class__.__name__}")
+    print(f"prompt: {prompt}")
     agent = Agent(
         ai_name=ai_name,
         memory=memory,
@@ -444,6 +445,7 @@ class Agent:
 
             # Send message to AI, get response
             with Spinner("Thinking... "):
+                print(f"prompt: {self.prompt}")
                 assistant_reply = chat.chat_with_ai(
                     self.prompt,
                     self.user_input,
@@ -453,6 +455,7 @@ class Agent:
                 )  # TODO: This hardcodes the model to use GPT3.5. Make this an argument
 
             # Print Assistant thoughts
+            print(f"assistant_reply: {assistant_reply}")
             logger.debug(f"assistant_reply: {assistant_reply}")
             print_assistant_thoughts(assistant_reply)
 
