@@ -128,6 +128,6 @@ class PromptGenerator:
             f"资源:\n{self._generate_numbered_list(self.resources)}\n\n"
             "绩效评估:\n"
             f"{self._generate_numbered_list(self.performance_evaluation)}\n\n"
-            "你应该只按照下面描述的 JSON 格式进行回复 \n"
-            f" 响应格式: \n{formatted_response_format} \n确保响应可以被 Python 的 json.loads 函数解析"
+            "请务必根据下面的 JSON 格式回复，确保回复内容严格遵循JSON格式规范： \n"
+            f" 响应格式: \n{formatted_response_format} \n在回复过程中，请确保所有JSON对象的键和值都使用双引号。确保响应可以被 Python 的 json.loads 函数解析。"
         )
